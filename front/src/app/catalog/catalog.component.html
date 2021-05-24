@@ -11,7 +11,7 @@
 
             <div *ngIf="!loading; else loadingBlock" class="catalog__loading">
 
-              <input type="text"placeholder="Find Product..." [(ngModel)]="searchStr">
+              <input type="text"placeholder="Find Product..." [(ngModel)]="searchStr" class="search__btn">
                 <form action="" method="POST">
 
                   <div *ngFor="let product of products | searchProducts:searchStr" class="catalog-product" >
@@ -30,7 +30,15 @@
 
                 </form>
 
+
+              <div class="catalog__add">
+                <p>Add Product</p>
+              <input type="text" class="add__btn">
+              </div>
+
               <input  type="submit" value="Add to cart" (click)="SendPr()" [routerLink]="['/order']">
+
+
             </div>
 
 
