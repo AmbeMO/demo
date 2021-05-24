@@ -1,0 +1,34 @@
+form{
+  font-size: 25px;
+  text-shadow: #f6f5d3 1px 0 10px;
+
+  padding-top: 20px;
+
+  display: flex;
+  align-items: center;
+  //justify-content: center;
+  flex-direction: column;
+
+  //margin: 0 auto;
+  input[type=text] {
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: none;
+    margin: 10px 0px;
+
+    &:focus{
+      border-bottom: 3px solid #170C0C;
+    }
+    &::placeholder{
+      color: #170C0C;
+      font-weight: 400;
+    }
+  }
+  input[type=submit]{
+    padding: 5px 10px;
+    background-color: #170C0C;
+    color: #f6f5d3;
+    border: none;
+    margin-top: 10px;
+  }
+}

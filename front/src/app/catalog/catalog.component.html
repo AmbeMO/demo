@@ -1,0 +1,46 @@
+
+  <div class="wrapper">
+    <div class="main">
+      <div class="container">
+
+
+        <div class="container__column">
+           <p *ngIf="error; else productsBlock" class="error">{{error}}</p>
+
+        <ng-template #productsBlock>
+
+            <div *ngIf="!loading; else loadingBlock" class="catalog__loading">
+
+<!--              <input type="text"placeholder="Find Product..." [(ngModel)]="searchStr" )]>-->
+                <form action="" method="POST">
+
+                  <div *ngFor="let product of products" class="catalog-product" >
+
+                      <input type="checkbox"  [class.completed]="product.completed" id="accept" >
+                    <div class="catalog__column">
+                         <p class="catalog__name">{{product.name}}</p>
+                        <div class="category__info" >
+                          <p class="catalog__category"> category: {{product.category}}</p>
+                          <p class="catalog__price"> price for 1 item: {{product.price | number}}</p>
+                        </div>
+                    </div>
+
+                  </div>
+
+                </form>
+
+              <input  type="submit" value="Add to cart" (click)="onCreate()" [routerLink]="['/order']">
+            </div>
+
+
+
+              <ng-template #loadingBlock>
+                 <p>Loading...</p>
+              </ng-template>
+
+           </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+
