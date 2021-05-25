@@ -7,9 +7,10 @@ import {Observable, throwError} from 'rxjs';
 export interface Product {
   completed: boolean;
   name: string;
-  price: string;
-  category: string;
-  id: number;
+  price?: string;
+  category?: string;
+  id?: number;
+  isChecked: boolean;
 }
 
 // export interface Supplier {
@@ -46,7 +47,10 @@ export class ProductService {
           console.log('Response', response);
           const array = response.body;
           console.log(array);
-          return response.body;
+          return response.body.map(product => ({
+            ...product,
+            isChecked: false,
+          }));
         }),
         delay(500),
         catchError(error => {

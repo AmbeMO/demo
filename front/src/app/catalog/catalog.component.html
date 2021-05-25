@@ -16,7 +16,7 @@
 
                   <div *ngFor="let product of products | searchProducts:searchStr" class="catalog-product" >
 
-                      <input type="checkbox"  [class.completed]="product.completed"   (click)="addToggle($event)" >
+                      <input type="checkbox" [checked]="product.isChecked" [class.completed]="product.completed"   (click)="addToggle($event)" id="{{product.id}}" >
                     <div class="catalog__column">
                           <p>{{product.id}}</p>
                          <p class="catalog__name">{{product.name}}</p>
@@ -32,11 +32,20 @@
 
 
               <div class="catalog__add">
-                <p>Add Product</p>
-              <input type="text" class="add__btn">
+                <div class="add__controll">
+                  <p>Add Product</p>
+                  <input type="text" class="add__btn" [(ngModel)]="productName" placeholder="name" >
+                  </div>
+
+                <input type="text" class="add__btn" [(ngModel)]="productPrice" placeholder="price">
+
+                  <input type="text" class="add__btn" [(ngModel)]="productCategory" placeholder="category">
+
+
+                <button class="btn" (click)="addProduct()">Add</button>
               </div>
 
-              <input  type="submit" value="Add to cart" (click)="modalOrder()"  >
+              <input  type="submit" value="Add to cart" (click)="SendPr()"  >
 
 
             </div>

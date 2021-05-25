@@ -16,6 +16,15 @@ class ProductController {
     res.json(product.rows[0]);
   }
 
+  async createProduct(req, res) {
+    const {
+      name, price, category
+    } = req.body;
+    const newProduct = await db.query('INSERT INTO "product" (name, price, category) VALUES ($1,$2, $3) RETURNING *', [name, price, category]);
+
+    res.json(newProduct.rows[0]);
+  }
+
   // async get5Products(req, res) {
   //   const products = await db.query('SELECT * FROM product WHERE id BETWEEN 5 AND 9');
   //   res.json(products.rows);

@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {Product, ProductService} from './catalog.service';
 import {from} from "rxjs";
 // import { MatDialog, MatDialogConfig} from "@angular/material";
 import Swal from 'sweetalert2';
+
 
 
 @Component({
@@ -17,9 +18,12 @@ export class CatalogComponent implements OnInit{
     state: boolean = false;
 
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService, private http: HttpClient) {}
 
   products: Product[] = [];
+  productName = '';
+  productCategory = '';
+  productPrice = '';
   cart: Product[] = [];
   error = '';
   searchStr = '';
@@ -48,35 +52,63 @@ export class CatalogComponent implements OnInit{
 }
 
   addToggle(event){
-     this.state = event.target.checked;
-     console.log(this.state);
+     this.products = this.products.map(product => {
+       console.log(product.id, event.target.id)
+       if (product.id == event.target.id) {
+         console.log(event.target.checked)
+         return {
+           ...product,
+           isChecked: event.target.checked,
+         };
+       }
+       return product
+     });
+
   }
   SendPr(){
-    if ( this.state == true) {
-       const all = this.products;
-      console.log('id', all);
-    }
+        console.log(this.products);
+
 }
-  modalOrder(){
-    Swal.fire({
-      title: 'Order!',
-      text: 'Do you want to add more products',
-      icon: 'question',
-      showCancelButton: true,
-      input: 'range',
-      inputLabel: 'How much',
-      inputValue: 1,
-      confirmButtonText: 'Make order'}).then((result) => {
-      if (result.isConfirmed) {
-      Swal.fire(
-        'Success!',
-        'Your order has been send.',
-        'success'
-      )
+  // modalOrder(){
+  //   Swal.fire({
+  //     title: 'Order!',
+  //     text: 'Do you want to add more products',
+  //     icon: 'question',
+  //     showCancelButton: true,
+  //     input: 'range',
+  //     inputLabel: 'How much',
+  //     inputValue: 1,
+  //     confirmButtonText: 'Make order'}).then((result) => {
+  //     if (result.isConfirmed) {
+  //     Swal.fire(
+  //       'Success!',
+  //       'Your order has been send.',
+  //       'success'
+  //     )
+  //   }
+  //   });
+  // }
+
+
+  addProduct() {
+    if(!this.productName.trim() && !this.productPrice.trim() && !this.productCategory.trim()){
+      return;
     }
-    });
+    const newProduct: Product = {
+      name: this.productName,
+      completed: false,
+      price: this.productPrice,
+      category: this.productCategory,
+      isChecked: false
+    }
+    this.http.post<Product>('http://localhost:8080/product', newProduct)
+    .subscribe( product => {
+      console.log('product', product )
+      this.products.push(product)
+      this.productName = ''
+      this.productPrice = ''
+      this.productCategory = ''
+    })
   }
-
-
 }
 

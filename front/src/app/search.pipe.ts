@@ -9,7 +9,7 @@ export class SearchPipe implements PipeTransform{
   transform(products: Product[], search = ''): Product[] {
     if (!search.trim()) {
 
-      console.log('zxc');
+      console.log('filter');
       return products;
     }
     return products.filter(product => {

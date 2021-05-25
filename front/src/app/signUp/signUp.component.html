@@ -1,15 +1,55 @@
 <form method="post" [formGroup]="form" (ngSubmit)="submitUp()">
   <label for="GET-name"><p>Name:</p></label>
   <input id="GET-name" type="text" name="name" required placeholder="Elon" formControlName="name">
+  <div
+    *ngIf="form.get('name').invalid && form.get('name').touched"
+    class="validation">
+    <small *ngIf="form.get('name').errors.required">
+      Field cant be empty</small>
+    <small *ngIf="form.get('name').errors.minlength"
+    >Length should be not less than{{form.get('name').errors.minlength.requiredLength}}.
+      Now amount of symbols {{form.get('name').errors.minlength.actualLength}}
+    </small>
+  </div>
 
   <label for="GET-lastName"><p>Last Name:</p></label>
   <input id="GET-lastName" type="text" name="lastName"  placeholder="Musk" formControlName="lastName">
+  <div
+    *ngIf="form.get('lastName').invalid && form.get('lastName').touched"
+    class="validation">
+    <small *ngIf="form.get('lastName').errors.required">
+      Field cant be empty</small>
+    <small *ngIf="form.get('lastName').errors.minlength"
+    >Length should be not less than{{form.get('lastName').errors.minlength.requiredLength}}.
+      Now amount of symbols {{form.get('lastName').errors.minlength.actualLength}}
+    </small>
+  </div>
 
   <label for="GET-phone"><p>Phone Number:</p></label>
   <input id="GET-phone" type="text" name="phone" required placeholder="(0xx)-xxx-xxxx" formControlName="phoneNumber">
+  <div
+    *ngIf="form.get('phoneNumber').invalid && form.get('phoneNumber').touched"
+    class="validation">
+    <small *ngIf="form.get('phoneNumber').errors.required">
+      Field cant be empty</small>
+    <small *ngIf="form.get('phoneNumber').errors.minlength"
+    >Length should be not less than{{form.get('phoneNumber').errors.minlength.requiredLength}}.
+      Now amount of symbols {{form.get('phoneNumber').errors.minlength.actualLength}}
+    </small>
+  </div>
 
   <label for="GET-address"><p>Address:</p></label>
   <input id="GET-address" type="text" name="address" required placeholder="street + house" formControlName="address">
+  <div
+    *ngIf="form.get('address').invalid && form.get('address').touched"
+    class="validation">
+    <small *ngIf="form.get('address').errors.required">
+      Field cant be empty</small>
+    <small *ngIf="form.get('address').errors.minlength"
+    >Length should be not less than{{form.get('address').errors.minlength.requiredLength}}.
+      Now amount of symbols {{form.get('address').errors.minlength.actualLength}}
+    </small>
+  </div>
 
 <!--  <label for="GET-password"><p>Create password:</p></label>-->
 <!--  <input id="GET-password" type="password" name="password" required placeholder="*******">-->
