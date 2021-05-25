@@ -9,7 +9,7 @@
   //height: 90vh;
   width: 100vw;
 
-  background: url('../../assets/img/del.png') #ffffff center no-repeat ;
+  //background: url('../../assets/img/round.jpg') #ffffff center no-repeat ;
   //background-color: #FFFFF8;
   color: #877f20;
   font-weight: 600;
@@ -52,10 +52,8 @@ form{
     flex-wrap: wrap;
     align-items: center;
 
-    width: 300px;
-    border: 3px solid #726c6c;
-      //border-radius: 5px;
-
+       width: 300px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin: 5px 5px;
     padding: 5px;
 
@@ -64,10 +62,12 @@ form{
         padding: 20px;
         margin: 0 auto;
         font-size: 0.5rem;
+        text-transform: capitalize;
+
 
         .catalog__name{
           padding-left: 10px;
-          text-transform: none;
+          text-transform: capitalize;
           letter-spacing: normal;
           text-align: center;
           font-size: 23px;
@@ -106,9 +106,18 @@ input[type=submit]{
   font-size: 1rem;
 }
 input[type=text]{
+  border: none;
+  //box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.2);
+  margin-left: 10px ;
   font-weight: 400;
   text-transform: capitalize;
-  padding: 20px;
+  //padding: 20px;
   font-size: 1rem;
+  background: url('../../assets/img/search.gif') left / contain no-repeat  ;
+  //background-position: 10px 10px;
+
+  padding: 10px 50px;
 }
+
 
