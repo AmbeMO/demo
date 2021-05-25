@@ -13,7 +13,8 @@ import {FormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthInterceptor} from './auth.interceptor';
 import {AppRoutingModule} from './app-routing.module';
-import {SearchPipe} from "./search.pipe";
+import {SearchPipe} from './search.pipe';
+import Swal from 'sweetalert2'
 
 
 

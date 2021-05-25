@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Product, ProductService} from './catalog.service';
 import {from} from "rxjs";
 // import { MatDialog, MatDialogConfig} from "@angular/material";
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -55,9 +56,23 @@ export class CatalogComponent implements OnInit{
        const all = this.products;
       console.log('id', all);
     }
-
-
 }
+  modalOrder(){
+    Swal.fire({
+      title: 'Order!',
+      text: 'Do you want to add more products',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Make order'}).then((result) => {
+      if (result.isConfirmed) {
+      Swal.fire(
+        'Success!',
+        'Your order has been send.',
+        'success'
+      )
+    }
+    });
+  }
 
 
 }
