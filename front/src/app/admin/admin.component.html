@@ -1,0 +1,17 @@
+<router-outlet>
+
+
+  <div class="catalog__add">
+    <div class="add__controll">
+      <p>Add Product</p>
+      <input type="text" class="add__btn" [(ngModel)]="productName" placeholder="name" >
+    </div>
+
+    <input type="text" class="add__btn" [(ngModel)]="productPrice" placeholder="price">
+
+    <input type="text" class="add__btn" [(ngModel)]="productCategory" placeholder="category">
+
+
+    <button class="btn" (click)="addProduct()">Add</button>
+  </div>
+</router-outlet>

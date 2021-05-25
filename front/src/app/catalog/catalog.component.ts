@@ -90,25 +90,25 @@ export class CatalogComponent implements OnInit{
   // }
 
 
-  addProduct() {
-    if(!this.productName.trim() && !this.productPrice.trim() && !this.productCategory.trim()){
-      return;
-    }
-    const newProduct: Product = {
-      name: this.productName,
-      completed: false,
-      price: this.productPrice,
-      category: this.productCategory,
-      isChecked: false
-    }
-    this.http.post<Product>('http://localhost:8080/product', newProduct)
-    .subscribe( product => {
-      console.log('product', product )
-      this.products.push(product)
-      this.productName = ''
-      this.productPrice = ''
-      this.productCategory = ''
-    })
-  }
+  // addProduct() {
+  //   if(!this.productName.trim() && !this.productPrice.trim() && !this.productCategory.trim()){
+  //     return;
+  //   }
+  //   const newProduct: Product = {
+  //     name: this.productName,
+  //     completed: false,
+  //     price: this.productPrice,
+  //     category: this.productCategory,
+  //     isChecked: false
+  //   }
+  //   this.http.post<Product>('http://localhost:8080/product', newProduct)
+  //   .subscribe( product => {
+  //     console.log('product', product );
+  //     this.products.push(product);
+  //     this.productName = '';
+  //     this.productPrice = '';
+  //     this.productCategory = '';
+  //   });
+  // }
 }
 

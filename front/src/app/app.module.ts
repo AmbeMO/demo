@@ -15,6 +15,7 @@ import {AuthInterceptor} from './auth.interceptor';
 import {AppRoutingModule} from './app-routing.module';
 import {SearchPipe} from './search.pipe';
 import Swal from 'sweetalert2';
+import { AdminComponent } from './admin/admin.component';
 
 
 
@@ -35,6 +36,7 @@ const INTERCEPTOR_PROVIDER: Provider = {
     FooterComponent,
     OrderComponent,
     SearchPipe,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,

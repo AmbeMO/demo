@@ -1,0 +1,40 @@
+.catalog__add{
+  font-weight: 400;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  max-width: 500px;
+  padding: 20px;
+
+ .btn{
+   padding: 10px;
+   font-size: 16px;
+
+   background-color: #170C0C;
+   color: #f6f5d3;
+   border: none;
+   margin-top: 10px;
+ }
+  p {
+    line-height: 30px;
+    padding: 10px;
+  }
+
+  input[type=text] {
+    text-transform: lowercase;
+    letter-spacing: normal;
+    border: none;
+    border-bottom: 1px solid #170C0C;
+    margin: 25px 10px;
+    font-weight: 400;
+    font-size: 20px;
+    &:focus{
+      border-bottom: 3px solid #170C0C;
+    }
+    &::placeholder{
+      color: #453535;
+      font-weight: 400;
+    }
+  }
+}
