@@ -31,4 +31,12 @@ form{
     border: none;
     margin-top: 10px;
   }
+  input{
+    &.ng-invalid.ng-touched {
+      border-bottom: 2px solid #d90707;
+    }
+    &.ng-valid.ng-touched {
+      border-bottom: 2px solid #c0e39f;
+    }
+  }
 }

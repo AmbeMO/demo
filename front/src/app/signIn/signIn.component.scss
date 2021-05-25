@@ -12,9 +12,12 @@ form{
   //margin: 0 auto;
   input[type=text] {
     padding: 5px 15px;
-    border-radius: 5px;
+    //border-radius: 5px;
     border: none;
     margin: 10px 0px;
+    font-weight: 400;
+    font-size: 1rem;
+    text-align: center;
 
     &:focus{
       border-bottom: 3px solid #170C0C;
@@ -26,6 +29,14 @@ form{
       text-align: center;
     }
   }
+  input{
+    &.ng-invalid.ng-touched {
+      border-bottom: 2px solid #d90707;
+    }
+    &.ng-valid.ng-touched {
+      border-bottom: 2px solid #c0e39f;
+    }
+  }
   input[type=submit]{
     padding: 15px;
     font-weight: 400;
@@ -34,4 +45,15 @@ form{
     border: none;
     margin-top: 10px;
   }
+  .validation {
+    & small{
+      color: #d90707;
+      font-size: 1.1rem;
+      text-transform: capitalize;
+      font-weight: 400;
+    }
+  }
+
+
+
 }

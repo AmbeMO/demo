@@ -1,6 +1,16 @@
 <form action="" method="post" [formGroup]="form" (ngSubmit)="submit()">
 <label for="GET-phone"><p>Phone Number:</p></label>
 <input id="GET-phone" type="text" name="phone" required placeholder="(0xx)-xxx-xxxx" formControlName="phoneNumber">
+  <div
+    *ngIf="form.get('phoneNumber').invalid && form.get('phoneNumber').touched"
+    class="validation">
+    <small *ngIf="form.get('phoneNumber').errors.required">
+      Field cant be empty</small>
+    <small *ngIf="form.get('phoneNumber').errors.minlength"
+    >Length should be not less than{{form.get('phoneNumber').errors.minlength.requiredLength}}.
+    Now amount of symbols {{form.get('phoneNumber').errors.minlength.actualLength}}
+    </small>
+  </div>
 
 <p><input type="submit" value="Sign in" [disabled]="form.invalid"></p>
 </form>
