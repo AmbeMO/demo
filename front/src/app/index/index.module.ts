@@ -1,5 +1,6 @@
 
-import {Component} from '@angular/core'
+import {Component, OnInit} from '@angular/core'
+import {FormGroup, ReactiveFormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-index',
@@ -7,6 +8,8 @@ import {Component} from '@angular/core'
   styleUrls: ['./index.component.scss']
 })
 
-export class IndexComponent {
+export class IndexComponent{
+
+
 
 }

@@ -1,19 +1,19 @@
-<form method="post">
+<form method="post" [formGroup]="form" (ngSubmit)="submitUp()">
   <label for="GET-name"><p>Name:</p></label>
-  <input id="GET-name" type="text" name="name" required placeholder="Elon">
+  <input id="GET-name" type="text" name="name" required placeholder="Elon" formControlName="name">
 
   <label for="GET-lastName"><p>Last Name:</p></label>
-  <input id="GET-lastName" type="text" name="lastName"  placeholder="Musk">
+  <input id="GET-lastName" type="text" name="lastName"  placeholder="Musk" formControlName="lastName">
 
   <label for="GET-phone"><p>Phone Number:</p></label>
-  <input id="GET-phone" type="text" name="phone" required placeholder="(0xx)-xxx-xxxx">
+  <input id="GET-phone" type="text" name="phone" required placeholder="(0xx)-xxx-xxxx" formControlName="phoneNumber">
 
   <label for="GET-address"><p>Address:</p></label>
-  <input id="GET-address" type="text" name="address" required placeholder="street + house">
+  <input id="GET-address" type="text" name="address" required placeholder="street + house" formControlName="address">
 
 <!--  <label for="GET-password"><p>Create password:</p></label>-->
 <!--  <input id="GET-password" type="password" name="password" required placeholder="*******">-->
 
 
-  <p><input type="submit" value="Sign up"></p>
+  <p><input type="submit" value="Sign up" [disabled]="form.invalid"></p>
 </form>

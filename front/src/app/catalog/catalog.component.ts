@@ -63,6 +63,9 @@ export class CatalogComponent implements OnInit{
       text: 'Do you want to add more products',
       icon: 'question',
       showCancelButton: true,
+      input: 'range',
+      inputLabel: 'How much',
+      inputValue: 1,
       confirmButtonText: 'Make order'}).then((result) => {
       if (result.isConfirmed) {
       Swal.fire(

@@ -1,4 +1,4 @@
-import {NgModule, Provider} from '@angular/core';
+import {NgModule, OnInit, Provider} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import {CatalogComponent} from './catalog/catalog.component';
@@ -9,12 +9,13 @@ import {IndexComponent} from './index/index.module';
 import {FooterComponent} from './footer/footer.module';
 import {OrderComponent} from './order/order.module';
 
-import {FormsModule} from '@angular/forms';
+import {FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthInterceptor} from './auth.interceptor';
 import {AppRoutingModule} from './app-routing.module';
 import {SearchPipe} from './search.pipe';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+
 
 
 
@@ -33,15 +34,21 @@ const INTERCEPTOR_PROVIDER: Provider = {
     IndexComponent,
     FooterComponent,
     OrderComponent,
-    SearchPipe
+    SearchPipe,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [INTERCEPTOR_PROVIDER],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule{
+
+
+}
+
+

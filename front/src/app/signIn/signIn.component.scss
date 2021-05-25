@@ -22,10 +22,13 @@ form{
     &::placeholder{
       color: #170C0C;
       font-weight: 400;
+      font-size: 1rem;
+      text-align: center;
     }
   }
   input[type=submit]{
-    padding: 5px 10px;
+    padding: 15px;
+    font-weight: 400;
     background-color: #170C0C;
     color: #f6f5d3;
     border: none;
