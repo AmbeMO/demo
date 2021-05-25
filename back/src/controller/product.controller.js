@@ -25,6 +25,20 @@ class ProductController {
     res.json(newProduct.rows[0]);
   }
 
+  async updateProduct(req, res) {
+    const {
+      id, name, price, category
+    } = req.body;
+    const product = await db.query('UPDATE "product" set name = $1, price = $2, category = $3  where id = $4 RETURNING *', [name, price, category, id]);
+    res.json(product.rows[0]);
+  }
+
+  async deleteProduct(req, res) {
+    const { id } = req.params;
+    const product = await db.query('DELETE  FROM "product" WHERE id = $1', [id]);
+    res.json(product.rows[0]);
+  }
+
   // async get5Products(req, res) {
   //   const products = await db.query('SELECT * FROM product WHERE id BETWEEN 5 AND 9');
   //   res.json(products.rows);
