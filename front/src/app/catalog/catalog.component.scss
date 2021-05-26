@@ -9,7 +9,9 @@
   //height: 90vh;
   width: 100vw;
 
-  //background: url('../../assets/img/round.jpg') #ffffff center no-repeat ;
+  background: url('../../assets/img/linee.png') #ffffff center / contain no-repeat  ;
+  background: rgb(72,73,58);
+  background: linear-gradient(0deg, rgba(72,73,58,1) 0%, rgba(255,255,255,1) 100%);
   //background-color: #FFFFF8;
   color: #877f20;
   font-weight: 600;
@@ -51,6 +53,7 @@ form{
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
+      background: #ffffff;
 
        width: 300px;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -101,9 +104,15 @@ input[type=submit]{
   padding: 20px;
   max-width: 200px;
   margin: 10px;
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  cursor: pointer;
 }
 .catalog__add{
   font-size: 1rem;
+}
+.search__btn{
+
 }
 input[type=text]{
   border: none;

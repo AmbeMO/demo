@@ -3,10 +3,10 @@ const db = require('../db');
 class OrderController {
   async createOrder(req, res) {
     const {
-      satus, quantity, price, deliveryAddress,
+       quantity,
     } = req.body;
     // INSERT INTO order_item FOR ALL order_item
-    const newOrder = await db.query('INSERT INTO "delivery_order" ( satus, quantity, price, delivery_address) VALUES ($1,$2, $3, $4) RETURNING *', [satus, quantity, price, deliveryAddress]);
+    const newOrder = await db.query('INSERT INTO "delivery_order" (  quantity ) VALUES ($1) RETURNING *', [ quantity ]);
 
     res.json(newOrder.rows[0]);
   }
